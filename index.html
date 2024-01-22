@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>puzzle date :> </title>
+</head>
+<body>
+    <h3>hello :> <br>
+        welcome to the puzzle.</h3>
+        
+        work with clues to reveal the final question. dont overthink it, but dont underthink it as well. i'll wait for your reply :> <br><br>
+    
+
+<div class="woo">
+   
+   <p class="instructions-1"> your first task is to find the hidden word in the code and submit it in the text box below</p>
+
+    mine (yep im the hidden word)
+
+    <p class="instructions-2">
+        you'll know when you find the word. well, it'll tell you itself. <br><br>
+    </p>
+    <p id="aight">good luck!</p><br><br>
+</div>
+
+<form>
+    <label for="hword">enter the hidden word:</label><br>
+    <p id="demo"></p>
+    <input type="text" id="hword" name="hword"><br>
+  </form> 
+  
+<button onclick="myFunction()">Check</button>
+
+
+
+<script>
+    function myFunction() {
+        var x = document.getElementById("hword").value;
+        var y = "mine";
+        var z = "looks like you've got what it takes! (make a note of this hidden word, it might come in handy later) click the next button for your next clue :>";
+        var button = document.getElementById("ok");
+
+        if (x != y){
+            document.getElementById("demo").innerHTML = "wrong word!";
+        }
+        else if (x == y){
+            document.getElementById("demo").innerHTML = "correct!";
+            document.getElementById("aight").innerHTML = z;
+            document.getElementById("clues").innerHTML = "A - 17 <br> B - 42 <br> C - 8 <br> D - 53 <br> E - 29 <br>F - 71 <br>G - 14 <br>H - 37 <br>I - 64 <br>J - 19 <br>K - 45 <br>L - 91 <br>M - 26 <br>N - 57 <br>O - 3 <br>P - 68 <br>Q - 11 <br>R - 33 <br>S - 76 <br>T - 22 <br>U - 49 <br>V - 6 <br>W - 81 <br>X - 5 <br>Y - 40 <br>Z - 95 <br>"
+            button.disabled = false;
+        
+        }
+
+}
+
+</script>
+
+<button id="ok" onclick="promptAndDownload()" disabled >next clue</button>
+
+<p id="clues"></p>
+
+<script>
+    function promptAndDownload() {
+        var fileContent = "8 33 17 71 22 || make a note of this word, it might be useful later || next clue (not the final question) -> https://youtu.be/ybvAa5TqxC0";
+        var blob = new Blob([fileContent], { type: "text/plain" });
+        var link = document.createElement("a");
+        link.download = "clue.txt";
+        link.href = window.URL.createObjectURL(blob);
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+</script>
+
+<style>
+.woo {
+  visibility:hidden;
+}
+.woo * {
+  visibility:visible;
+}
+</style>
+</body>
+</html>
